@@ -18,4 +18,11 @@ public class FibonacciSequence_Should {
         assertThat(fibAtPos, is(1));
     }
 
+    @Test public void
+    return_one_at_position_two() {
+        int fibAtPos = FibonacciSequence.numberAtPosition(2);
+
+        assertThat(fibAtPos, is(1));
+    }
+
 }
