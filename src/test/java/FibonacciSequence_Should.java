@@ -16,7 +16,7 @@ public class FibonacciSequence_Should {
 
     @DisplayName("Fibonacci number at position")
     @ParameterizedTest(name = "{0} should be {1}")
-    @CsvSource({ "1,1", "2,1", "3,2", "4,3" })
+    @CsvSource({ "0,0", "1,1", "2,1", "3,2", "4,3", "5,5", "6,8", "7,13" })
     public void fibonacci_number_at_position(int position, int expectedResult) {
         int fibAtPos = FibonacciSequence.numberAtPosition(position);
 

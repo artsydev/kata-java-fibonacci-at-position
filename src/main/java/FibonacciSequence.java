@@ -1,21 +1,21 @@
 public class FibonacciSequence {
 
     public static int numberAtPosition(int position) {
-        if (position <= 0)
-            throw new IllegalArgumentException("position must be greater than 0");
+        if (position < 0)
+            throw new IllegalArgumentException("position must be positive");
 
-        int currentPosition = 1;
+        if (position < 2)
+            return position;
+
         int prevFibNumber = 0;
-        int nextFibNumber = 1;
-        int fibNumber = 1;
-        while (currentPosition < position) {
-            fibNumber = nextFibNumber + prevFibNumber;
-            prevFibNumber = nextFibNumber;
-            nextFibNumber = fibNumber;
-            currentPosition++;
+        int currentFibNumber = 1;
+        while (position-- > 1) {
+            int nextFibNumber = currentFibNumber + prevFibNumber;
+            prevFibNumber = currentFibNumber;
+            currentFibNumber = nextFibNumber;
         }
 
-        return fibNumber;
+        return currentFibNumber;
     }
 
 }
