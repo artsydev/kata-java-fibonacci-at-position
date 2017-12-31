@@ -1,4 +1,7 @@
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -11,18 +14,13 @@ public class FibonacciSequence_Should {
         int fibAtPos = FibonacciSequence.numberAtPosition(-1);
     }
 
-    @Test public void
-    return_one_at_position_one() {
-        int fibAtPos = FibonacciSequence.numberAtPosition(1);
+    @DisplayName("Fibonacci number at position")
+    @ParameterizedTest(name = "{0} should be {1}")
+    @CsvSource({ "1,1", "2,1", "3,2" })
+    public void fibonacci_number_at_position(int position, int expectedResult) {
+        int fibAtPos = FibonacciSequence.numberAtPosition(position);
 
-        assertThat(fibAtPos, is(1));
-    }
-
-    @Test public void
-    return_one_at_position_two() {
-        int fibAtPos = FibonacciSequence.numberAtPosition(2);
-
-        assertThat(fibAtPos, is(1));
+        assertThat(fibAtPos, is(expectedResult));
     }
 
 }

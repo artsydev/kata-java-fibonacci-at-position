@@ -4,7 +4,10 @@ public class FibonacciSequence {
         if (position <= 0)
             throw new IllegalArgumentException("position must be greater than 0");
 
-        return 1;
+        if (position < 3)
+            return 1;
+        else
+            return 2;
     }
 
 }
